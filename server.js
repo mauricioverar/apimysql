@@ -8,18 +8,18 @@ const { env } = require('process')
 async function main() {
 
   const conn = await createPool({
-    host: process.env.db_host,
-    user: process.env.db_user,
-    password: process.env.db_pass,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
     ssl: {
       rejectUnauthorized: false
     },
-    database: process.env.db_name
+    database: process.env.DB_NAME
   })
 
   // conn.query( 'create table users(name varchar(255))' )
 
-   const resp = await conn.query( 'select * from users' )
+  //  const resp = await conn.query( 'select * from users' )
   // console.log('first ', resp[0])
 }
 main()
