@@ -28,7 +28,8 @@ main()
 
 // settings
 // const port = 3000
-app.set('port', process.env.PORT || 3000) // produccion o local
+// app.set('port', process.env.PORT || 3000) // produccion o local
+const port = process.env.PORT || 3000
 
 // middlewares se ejecutan antes de las funcionalidades y rutas
 app.use(express.json())
@@ -71,10 +72,10 @@ app.use(express.json())
 //app.use(require('./routes/employess'))
 
 // start server
-app.listen(app.get('port'), () => {
+/* app.listen(app.get('port'), () => {
   console.log(`Servidor en puerto http://localhost:` + app.get('port'))
-})
-
+}) */
+app.listen(port)
 // nodemon server
 // al llamarse index se ejecuta auto en package
 // npm start
