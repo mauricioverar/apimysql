@@ -33,7 +33,7 @@ const create_employee = async (req, res) => {
   }
   mysqlConnection.query(sql, customerObj, (err, rows) => {
     if(!err) {
-      res.json({status: 'Employeed Saved'});
+      res.send('Employeed Saved');
     } else {
       console.log(err);
     }
@@ -41,6 +41,22 @@ const create_employee = async (req, res) => {
 }
 
 const update_employee = async (req, res) => {
+  const { name, salary } = req.body; // argumentos
+  const { id } = req.params; // parametros
+  /* const customerObj = {
+    name: req.body.name,
+    salary: req.body.salary
+  } */
+  console.log('nmae ', name, 'salary ', salary) // ok
+  const sql = `update employees set name='${name}', salary='${salary}' where id=${id}`
+  mysqlConnection.query(sql, [ name, salary ], (err, rows) => {
+    if(!err) {
+      res.send('Employeed Saved');
+    } else {
+      throw err
+      console.log(err);
+    }
+  });
   res.send('Update employee')
 }
 
