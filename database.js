@@ -1,10 +1,10 @@
 const mysql = require('mysql2');
 
 const mysqlConnection = mysql.createConnection({
-  host: 'us-east.connect.psdb.cloud',
-  user: 'l198bm38faafjwu4xiod',
-  password: 'pscale_pw_L53RHjlak5bz5fWnkqtwPHebUsFsp7ta1Kjsyn58WzP',
-  database: 'apimysql',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
   ssl: {"rejectUnauthorized":true}
 });
 
