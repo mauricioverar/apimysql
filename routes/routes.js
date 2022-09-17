@@ -3,7 +3,7 @@ const router = Router()
 
 const { get_employees, get_employee, create_employee, update_employee, delete_employee } = require('../db/employees')
 
-router.get('/', (req, res) => {
+/* router.get('/', (req, res) => {
   res.send(`
   <html>
     <h2>Api-Rest-Mysql</h2>
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
       <li>Delet a employee: <i>/api/v1/delete/nº id</i></li>
     </ul>
   </html>`)
-})
+}) */
 router.get('/employees', get_employees)
 router.get('/employee/:id', get_employee)
 router.post('/add', create_employee)
