@@ -1,10 +1,8 @@
 const mysqlConnection  = require('../database.js');
 
 // console.log('basedatos')
-const key_rnd = Math.floor(Math.random() * 16777215).toString(16)
-let acceso = true
-/* let num = '8b38afwid'
-let acceso = true */
+// const key_rnd = Math.floor(Math.random() * 16777215).toString(16)
+// let acceso = true
 
 
 const get_employees = async (req, res) => {
@@ -31,23 +29,31 @@ const get_employee = async (req, res) => {
   });
 }
 
-const create_employee = async (req, res) => {
-  const { key } = req.params;
+// const create_employee = async (req, res) => {
+ //const { key } = req.params;
 
   // console.log('create ')
   // console.log('create rnd y key  ', key_rnd, key)
   // console.log('create name = ', req.body.name)
 
 
-  const sql = 'insert into employees set ?'
+  /* const sql = 'insert into employees set ?'
   const customerObj = {
     name: req.body.name,
     salary: req.body.salary
   }
 
+  mysqlConnection.query(sql, customerObj, (err, rows) => {
+    if(!err) {
+      res.send('Employeed Saved');
+    } else {
+      console.log(err);
+    }
+  });
+ */
   // console.log('acceso ', acceso)
 
-  if (acceso) {
+  /* if (acceso) {
 
     // console.log('access ok ')
     acceso = false
@@ -73,10 +79,9 @@ const create_employee = async (req, res) => {
     // console.log('not access')
     res.send('not access');
     
-  }
-
+  } */
   
-}
+// }
 
 const update_employee = async (req, res) => {
 
@@ -119,4 +124,4 @@ const delete_employee = async (req, res) => {
   }
 }
 
-module.exports = { get_employees, get_employee, create_employee, update_employee, delete_employee, key_rnd }
+module.exports = { get_employees, get_employee, update_employee, delete_employee } // , create_employee, key_rnd
