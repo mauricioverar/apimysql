@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key_Api</title>
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!-- <link rel="stylesheet" type="text/css" href="/css/styles.css"> -->
+  <style>
+    form {
+      border-radius: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 offset-md-4 mt-5 bg-white mt-4 p-4 text-white shadow rounded">
+        <h3 class="text-center text-primary fw-bold">Get_Key_Access</h3>
+
+        <form action="/checkcode" method="post" class="">
+          <div class="mb-3">
+            <!-- <label for="exampleInputEmail1" class="form-label">Email</label> -->
+            <input type="text" class="form-control" name="code" placeholder="Code">
+            <!-- <div id="emailHelp" class="form-text text-white">Jamás compartiremos tus datos con otra persona.</div> -->
+          </div>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary fw-bold">Send code</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <script src="/js/bootstrap.bundle.min.js"></script> -->
+  <!-- <script src="/js/scripts.js"></script> -->
+</body>
+</html>

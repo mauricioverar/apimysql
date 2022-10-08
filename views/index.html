@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h2>Api-Rest-Mysql</h2>
+<h3>{{msj}}</h3>
+
+<ul>
+  <li>Show all The employees: </li>
+  <p><i>/employees</i></p>
+  <li>Show one employee: </li>
+  <p><i>/employee/nº id</i></p>
+
+  <li>Add a employee: key by email <a href="/get_key" class="btn btn-success" type="submit">Get_key</a></li>
+
+  <p><i>/add/ <b> key </b></i></p>
+  <p>format:</p>
+  <p>body {"name":"nombre", "salary": number}</p>
+  <p>one employee by key</p>
+
+  <li>Update a employee: </li>
+  <p><i>/update/nº id</i></p>
+  <li>Delete a employee: </li>
+  <p><i>/delete/nº id</i></p>
+  <p>only new employees</p>
+</ul>
+
+{% endblock %}

@@ -8,7 +8,6 @@ const mysqlConnection = mysql.createConnection({
   ssl: {"rejectUnauthorized":true}
 });
 
-// DATABASE_URL='mysql://l198bm38faafjwu4xiod:pscale_pw_L53RHjlak5bz5fWnkqtwPHebUsFsp7ta1Kjsyn58WzP@us-east.connect.psdb.cloud/apimysql?ssl={"rejectUnauthorized":true}'
 
 mysqlConnection.connect(function (err) {
   if (err) {
@@ -18,5 +17,13 @@ mysqlConnection.connect(function (err) {
     console.log('db is connected');
   }
 });
+
+// MySql
+/* const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'rootpass',
+  database: 'node20_mysql'
+}); */
 
 module.exports = mysqlConnection;
