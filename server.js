@@ -2,11 +2,10 @@ const express = require('express') // body parser lo trae incluido o npm i body-
 const favicon = require('serve-favicon')
 const nunjucks = require('nunjucks')
 const path = require('path')
-// const router = require('./routes/routes')
 
 const app = express()
 
-const port = process.env.PORT || 3000 // asignar un puerto en heroku
+const port = process.env.PORT || 3000
 
 // middlewares se ejecutan antes de las funcionalidades y rutas
 app.use(express.json())
@@ -25,7 +24,6 @@ const nunj_env = nunjucks.configure(path.resolve(__dirname, "views"), {
 
 app.use(require('./routes/routes'))
 // app.use('/api/v1', router) // prefijo
-
 
 app.listen(port, () => console.log(`server runing on port http://localhost:${port}`))
 

@@ -8,8 +8,6 @@ const mysqlConnection = mysql.createConnection({
   ssl: {"rejectUnauthorized":true}
 });
 
-
-
 mysqlConnection.connect(function (err) {
   if (err) {
     console.error(err);
@@ -18,13 +16,5 @@ mysqlConnection.connect(function (err) {
     console.log('db is connected');
   }
 });
-
-// MySql
-/* const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'rootpass',
-  database: 'node20_mysql'
-}); */
 
 module.exports = mysqlConnection;
