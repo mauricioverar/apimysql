@@ -101,7 +101,7 @@ router.use((req, res) => {
     </a>
   </html>`)
 })
-/* router.get('*', (req, res) => { // ver demora carga pag
+/* router.get('*', (req, res) => {
   res.render('404.html')
 }) */
 
