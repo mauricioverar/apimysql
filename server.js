@@ -28,3 +28,4 @@ app.use(require('./routes/routes'))
 app.listen(port, () => console.log(`server runing on port http://localhost:${port}`))
 
 // git push heroku main
+// heroku logs --tail

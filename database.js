@@ -1,5 +1,5 @@
 const mysql = require('mysql2'); // .promess
-const secrets = require('./secrets')
+// const secrets = require('./secrets')
 
 const mysqlConnection = mysql.createConnection({
   host: process.env.DB_HOST || secrets.db_host,
