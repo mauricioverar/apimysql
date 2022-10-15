@@ -106,3 +106,77 @@ router.use((req, res) => {
 }) */
 
 module.exports = router
+
+// Documentación
+// url/docs
+
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    Employees:
+ *      type: object
+ *      properties:
+ *        id:
+ *          type: string
+ *          description: the auto-generated id of employee
+ *        name:
+ *          type: string
+ *          description: the employee name
+ *        salary:
+ *          type: string
+ *          description: the employee salary
+ * tags:
+ *  name: Employees
+ *  description: employees endpoint
+ */
+
+/**
+ * @swagger
+ * https://api-mysql-heroku.herokuapp.com/employees:
+ *  get:
+ *    summary: Get all Employees
+ *    tags: [Employees]
+ */
+
+//
+
+/**
+ * @swagger
+ * /employees/count:
+ *  get:
+ *    summary: get total employees counter
+ *    tags: [Employees]
+ */
+
+/**
+ * @swagger
+ * /employees:
+ *  post:
+ *    summary: save a new Employee
+ *    tags: [Employees]
+ */
+
+/**
+ * @swagger
+ * /employees/{id}:
+ *  get:
+ *    summary: Get employee by Id
+ *    tags: [Employees]
+ */
+
+/**
+ * @swagger
+ * /employees/{id}:
+ *  delete:
+ *    summary: delete a employee by Id
+ *    tags: [Employees]
+ */
+
+/**
+ * @swagger
+ * /employees/{id}:
+ *  put:
+ *    summary: update a employee by Id
+ *    tags: [Employees]
+ */
