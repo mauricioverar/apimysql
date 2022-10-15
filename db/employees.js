@@ -10,6 +10,16 @@ const get_employees = async (req, res) => {
   })
 }
 
+const getEmployeesCount = async (req, res) => {
+  mysqlConnection.query('SELECT COUNT(*) FROM employees', (err, rows, fields) => {
+    if(!err) {
+      res.json(rows[0]["COUNT(*)"]); // primer obj con key "COUNT(*)" (es el q contiene la cantidad total de trabajadores)
+    } else {
+      console.log(err);
+    }
+  })
+}
+
 const get_employee = async (req, res) => {
   const { id } = req.params; 
   mysqlConnection.query('SELECT * FROM employees WHERE id = ?', [id], (err, rows) => {
@@ -55,4 +65,4 @@ const delete_employee = async (req, res) => {
   }
 }
 
-module.exports = { get_employees, get_employee, update_employee, delete_employee }
+module.exports = { get_employees, getEmployeesCount, get_employee, update_employee, delete_employee }

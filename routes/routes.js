@@ -3,7 +3,7 @@ const router = Router()
 const nodemailer = require('nodemailer')
 const mysqlConnection = require('../database.js');
 
-const { get_employees, get_employee, update_employee, delete_employee } = require('../db/employees')
+const { get_employees, getEmployeesCount, get_employee, update_employee, delete_employee } = require('../db/employees')
 
 let key_rnd = ''
 let acceso = false
@@ -13,6 +13,7 @@ let correo = process.env.MI_EMAIL
 let clave = process.env.MI_PASS
 
 router.get('/employees', get_employees)
+router.get("/employees/count", getEmployeesCount); // contar
 router.get('/employee/:id', get_employee)
 router.put('/update/:id', update_employee)
 router.delete('/delete/:id', delete_employee)
@@ -143,7 +144,7 @@ module.exports = router
 
 /**
  * @swagger
- * /employees/count:
+ * https://api-mysql-heroku.herokuapp.com/employees/count:
  *  get:
  *    summary: get total employees counter
  *    tags: [Employees]
@@ -151,15 +152,23 @@ module.exports = router
 
 /**
  * @swagger
- * /employees:
- *  post:
- *    summary: save a new Employee
+ * https://api-mysql-heroku.herokuapp.com/get_key:
+ *  get:
+ *    summary: get your key code with you email
  *    tags: [Employees]
  */
 
 /**
  * @swagger
- * /employees/{id}:
+ * https://api-mysql-heroku.herokuapp.com/add/{key}:
+ *  post:
+ *    summary: save a new Employee first get your key code with you email in https://api-mysql-heroku.herokuapp.com/get_key
+ *    tags: [Employees]
+ */
+
+/**
+ * @swagger
+ * https://api-mysql-heroku.herokuapp.com/employee/{id}:
  *  get:
  *    summary: Get employee by Id
  *    tags: [Employees]
@@ -167,7 +176,7 @@ module.exports = router
 
 /**
  * @swagger
- * /employees/{id}:
+ * https://api-mysql-heroku.herokuapp.com/delete/{id}:
  *  delete:
  *    summary: delete a employee by Id
  *    tags: [Employees]
@@ -175,7 +184,7 @@ module.exports = router
 
 /**
  * @swagger
- * /employees/{id}:
+ * https://api-mysql-heroku.herokuapp.com/update/{id}:
  *  put:
  *    summary: update a employee by Id
  *    tags: [Employees]
