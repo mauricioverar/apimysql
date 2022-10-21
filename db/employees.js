@@ -1,6 +1,7 @@
 const mysqlConnection  = require('../database.js');
 
 const get_employees = async (req, res) => {
+  console.log('into emp')
   mysqlConnection.query('SELECT * FROM employees', (err, rows, fields) => {
     if(!err) {
       res.json(rows);
