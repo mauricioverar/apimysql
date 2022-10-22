@@ -7,8 +7,8 @@ const path = require('path')
 // console.log(process.env.ORIGIN)
 
 // documentacion
-const swaggerJSDoc = require ("swagger-jsdoc"); //
-const swaggerUI = require ("swagger-ui-express"); //
+const swaggerJSDoc = require("swagger-jsdoc"); //
+const swaggerUI = require("swagger-ui-express"); //
 
 const app = express()
 
@@ -26,10 +26,10 @@ app.use(
       return callback("No autorizado por CORS");
   },
 })) */
-// app.use(cors())
+// app.use(cors()) // permite todo
 app.use(
   cors(
-    {origin: 'https://api-mysql-heroku.herokuapp.com'})) 
+    { origin: 'http://localhost:8080/' })) // 'https://api-mysql-heroku.herokuapp.com' }))
 
 // documentacion
 const options = {
@@ -57,7 +57,7 @@ const port = process.env.PORT || 3000
 // middlewares se ejecutan antes de las funcionalidades y rutas
 app.use(express.json()) // mejor
 // se configura uso de formularios
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 
 app.use(express.static('public'))
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
