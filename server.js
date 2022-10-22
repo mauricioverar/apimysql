@@ -3,8 +3,8 @@ const cors = require('cors')
 const favicon = require('serve-favicon')
 const nunjucks = require('nunjucks')
 const path = require('path')
-require ('dotenv').config()
-console.log(process.env.ORIGIN)
+// require ('dotenv').config()
+// console.log(process.env.ORIGIN)
 
 // documentacion
 const swaggerJSDoc = require ("swagger-jsdoc"); //
@@ -14,7 +14,8 @@ const app = express()
 
 // middlewares
 // permitir acceso a este dominio
-const whiteList = (process.env.ORIGIN)
+// const whiteList = (process.env.ORIGIN)
+const whiteList = ('https://api-mysql-heroku.herokuapp.com')
 app.use(
   cors({
     origin: function(origin, callback) {
