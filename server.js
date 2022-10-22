@@ -4,7 +4,7 @@ const favicon = require('serve-favicon')
 const nunjucks = require('nunjucks')
 const path = require('path')
 require ('dotenv').config()
-console.log(process.env.ORIGIN1)
+console.log(process.env.ORIGIN)
 
 // documentacion
 const swaggerJSDoc = require ("swagger-jsdoc"); //
