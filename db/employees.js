@@ -1,15 +1,21 @@
 const mysqlConnection  = require('../database.js');
 
 const get_employees = async (req, res) => {
-  console.log('into emp')
+  console.log('into emp get')
+  console.log(req.header('Origin'))
   mysqlConnection.query('SELECT * FROM employees', (err, rows, fields) => {
     if(!err) {
-      res.json(rows);
+      res.json(rows); // block by cors
     } else {
       console.log(err);
     }
   })
 }
+/* // es lo q hace el navegador
+fetch(`https://api-mysql-heroku.herokuapp.com/employees`)
+  .then((res) => console.log(res))
+    .catch((err) => console.log(err));
+*/
 
 const getEmployeesCount = async (req, res) => {
   mysqlConnection.query('SELECT COUNT(*) FROM employees', (err, rows, fields) => {

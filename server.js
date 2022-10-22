@@ -1,13 +1,30 @@
 const express = require('express') // body parser lo trae incluido o npm i body-parser
+const cors = require('cors')
 const favicon = require('serve-favicon')
 const nunjucks = require('nunjucks')
 const path = require('path')
+require ('dotenv').config()
+console.log(process.env.ORIGIN1)
 
 // documentacion
 const swaggerJSDoc = require ("swagger-jsdoc"); //
 const swaggerUI = require ("swagger-ui-express"); //
 
 const app = express()
+
+// middlewares
+// permitir acceso a este dominio
+const whiteList = (process.env.ORIGIN)
+app.use(
+  cors({
+    origin: function(origin, callback) {
+      console.log(origin) // muestra dominio q hizo solicitud (url)
+      if (whiteList.includes(origin)) {
+          return callback(null, origin);
+      }
+      return callback("No autorizado por CORS");
+  },
+}))
 
 // documentacion
 const options = {
@@ -33,7 +50,7 @@ app.use("/docs", swaggerUI.serve, swaggerUI.setup(specs));
 const port = process.env.PORT || 3000
 
 // middlewares se ejecutan antes de las funcionalidades y rutas
-app.use(express.json())
+app.use(express.json()) // mejor
 // se configura uso de formularios
 app.use(express.urlencoded({extended: false}))
 

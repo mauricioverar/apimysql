@@ -19,6 +19,9 @@ router.put('/update/:id', update_employee)
 router.delete('/delete/:id', delete_employee)
 // create_employee
 router.post('/add/:key', (req, res) => {
+  console.log('entro add post')
+  console.log(req.body)
+  console.log(req.get('Origin'))
   const sql = 'insert into employees set ?'
   const customerObj = {
     name: req.body.name,
@@ -29,7 +32,7 @@ router.post('/add/:key', (req, res) => {
     if (key_rnd == req.params.key) {
       mysqlConnection.query(sql, customerObj, (err, rows) => {
         if (!err) {
-          res.send('Employeed Saved');
+          res.send('Employeed Saved'); // block by cors
         } else {
           console.log(err);
         }
@@ -43,6 +46,24 @@ router.post('/add/:key', (req, res) => {
     res.send('not access, get a new key in https://api-mysql-heroku.herokuapp.com/');
   }
 })
+/* // es lo q hace el navegador
+fetch(`https://api-mysql-heroku.herokuapp.com/add`, {
+  method: "POST",
+})
+  .then((res) => console.log(res))
+    .catch((err) => console.log(err));
+*/
+/*
+fetch(`http://localhost:3000/employees`, {
+    method: "POST",
+    headers: {
+        'Content-Type': 'aplication/x-www-form-urlencoded',
+    },
+    body: "texto=desde front",
+})
+  .then((res) => console.log(res))
+    .catch((err) => console.log(err));
+*/
 
 router.get('/', (req, res) => {
   try {
