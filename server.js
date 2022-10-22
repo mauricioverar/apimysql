@@ -14,7 +14,7 @@ const app = express()
 
 // middlewares
 // permitir acceso a este dominio
-const whiteList = 'https://api-mysql-heroku.herokuapp.com' //(process.env.ORIGIN)
+const whiteList = (process.env.ORIGIN)
 app.use(
   cors({
     origin: function(origin, callback) {
