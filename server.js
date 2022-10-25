@@ -29,7 +29,7 @@ app.use(
 // app.use(cors()) // permite todo
 app.use(
   cors(
-    { origin: 'https://portafolio-mvr.web.app/' })) // 'https://api-mysql-heroku.herokuapp.com' })) // http://localhost:8080
+    { origin: 'https://portafolio-mvr.web.app' })) // 'https://api-mysql-heroku.herokuapp.com' })) // http://localhost:8080
 
 // documentacion
 const options = {
