@@ -29,7 +29,7 @@ app.use(
 // app.use(cors()) // permite todo
 app.use(
   cors(
-    { origin: 'https://porthbs.herokuapp.com' })) // 'https://api-mysql-heroku.herokuapp.com' })) // http://localhost:8080
+    { origin: 'https://porthbs.herokuapp.com/myusers' })) // 'https://api-mysql-heroku.herokuapp.com' })) // http://localhost:8080
 
 // documentacion
 const options = {
